@@ -32,7 +32,7 @@ Or, from the used (formerly-public) function's documentation:
 
 ## Notification tester
 
-[Notification Tester](https://freaktechnik.github.io/notification-sounds/)
+[Notification Tester](https://cybershadow.github.io/notification-attention/)
 
 ## License
 
