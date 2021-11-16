@@ -1,5 +1,4 @@
-const EXTERNAL_SOUND = "tetris.MP3",
-    showNotification = async (options) => {
+const showNotification = async (options) => {
         const perm = await Notification.requestPermission();
         if(perm === "granted") {
             const notif = new Notification("Test notification", options);
@@ -8,7 +7,7 @@ const EXTERNAL_SOUND = "tetris.MP3",
             }
         }
         else {
-            console.error("Can not play sound because permission was not granted.");
+            throw new Error(`Permission was not granted: ${perm}`);
         }
     },
     showSWNotification = async (options) => {
@@ -18,15 +17,32 @@ const EXTERNAL_SOUND = "tetris.MP3",
             sw.showNotification("Test notification", options);
         }
         else {
-            console.error("Can not play sound because permission was not granted.");
+            throw new Error(`Permission was not granted: ${perm}`);
+        }
+    },
+    action = async (sw, timeout) => {
+        const prefix = sw ? 'sw-' : '';
+        const func = sw ? showSWNotification : showNotification;
+        const status = document.getElementById(prefix + 'status');
+        if (timeout > 0) {
+            status.textContent = `${timeout}...`;
+            setTimeout(action, 1000, sw, timeout - 1);
+        } else {
+            status.textContent = `Showing notification...`;
+            try {
+                await func({});
+                status.textContent = `Notification displayed.`;
+            } catch (e) {
+                status.textContent = `Error: ` + e.toString();
+            }
         }
     };
 
 document.addEventListener("DOMContentLoaded", () => {
     navigator.serviceWorker.register('sw.js');
 
-    document.getElementById("normal").addEventListener("click", () => showNotification());
-    document.getElementById("silent").addEventListener("click", () => showNotification({ silent: true }));
-    document.getElementById("custom").addEventListener("click", () => showNotification({ sound: EXTERNAL_SOUND}));
-    document.getElementById("swnormal").addEventListener("click", () => showSWNotification());
+    document.getElementById(   "immediately").addEventListener("click", () => action(false, 0));
+    document.getElementById(   "five"       ).addEventListener("click", () => action(false, 5));
+    document.getElementById("sw-immediately").addEventListener("click", () => action(true, 0));
+    document.getElementById("sw-five"       ).addEventListener("click", () => action(true, 5));
 });

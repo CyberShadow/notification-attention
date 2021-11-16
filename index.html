@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <meta charset="utf-8">
-    <title>Notification Sound Tester</title>
+    <title>Notification Attention Tester</title>
     <script src="script.js"></script>
 </html>
 <body>
     <main>
-        <h1>
-            Notification constructor
-        </h1>
-        <button id="normal">
-            Normal
-        </button>
-        <button id="silent">
-            Silent
-        </button>
-        <button id="custom">
-            Custom Sound
-        </button>
-        <p>The custom sound is an MP3 file. If you can not hear it, your Firefox may not like to play MP3s in extensions, sadly.</p>
-        </section>
         <section>
-        <h1>
-            Service Worker
-        </h1>
-        <button id="swnormal">
-            Normal
-        </button>
+            <h1>
+                Notification constructor
+            </h1>
+
+            <p>
+                <button id="immediately">
+                    Immediately
+                </button>
+                <button id="five">
+                    After 5 seconds
+                </button>
+            </p>
+
+            <div id="status"></div>
+        </section>
+
+        <section>
+            <h1>
+                Service Worker
+            </h1>
+
+            <p>
+                <button id="sw-immediately">
+                    Immediately
+                </button>
+                <button id="sw-five">
+                    After 5 seconds
+                </button>
+            </p>
+
+            <div id="sw-status"></div>
     </main>
 </body>
