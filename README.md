@@ -1,53 +1,39 @@
-# ![icon](images/Notification_Sound_Icon_Square.svg) Notification Sound
+# ![icon](images/Notification_Attention_Icon.svg) Notification Attention
 
-Makes a sound when a notification is shown.
+"Draws attention" to windows which display a notification.
+
+This extension is based on freaktechnik's [Notification Sound](https://github.com/freaktechnik/notification-sounds) extension.
+
+## Mechanism
 
 Overrides Website's `Notification` constructor and `showNotification` method on
-ServiceWorker registrations to get notified when they're called. Other extensions
-can also let this extension know that they've shown a notification.
+ServiceWorker registrations to get notified when they're called.
 
-Currently can not play a sound when a ServiceWorker shows a notification.
+The exact effect of this extension is platform-specific. To quote the [Firefox source code](https://github.com/mozilla/gecko-dev/blob/fb8d77331582639ea6848a61dd8ee812fac31b77/widget/nsIWidget.h#L1392-L1397):
 
-Supports the `silent` and `sound` option on the `Notification` constructor.
+> Bring this window to the user's attention.  This is intended to be a more
+> gentle notification than popping the window to the top or putting up an
+> alert.  See, for example, Win32 FlashWindow or the NotificationManager on
+> the Mac.  The notification should be suppressed if the window is already
+> in the foreground and should be dismissed when the user brings this window
+> to the foreground.
+
+Or, from the used (formerly-public) function's documentation:
+
+> On Windows, the taskbar button for the window flashes, if this hasn't been disabled by the user.
+>
+> On Linux, the behaviour varies from window manager to window manager - some flash the taskbar button, others focus the window immediately. This may be configurable as well.
+>
+> On Macintosh, the icon in the upper right corner of the desktop flashes.
 
 ## Official Download
 
-[![addons.mozilla.org/](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png)](https://addons.mozilla.org/firefox/addon/notification-sound/?utm_source=github&utm_content=readme)
-
-## Extension integration
-
-For extensions to trigger a sound when creating a notification, they have to send the following message:
-
-```js
-browser.runtime.sendMessage("@notification-sound", "new-notification");
-```
-
-`new-notification` returns a Promise that resolves to a boolean, indicating, whether the sound was played (based on user settings).
-
-Starting from Firefox 56, an extension can just add the following code to the top level of its background page to send the message whenever it shows a notification:
-
-```js
-browser.notifications.onShown.addListener(() => {
-    browser.runtime.sendMessage("@notification-sound", "new-notification");
-});
-```
+[![addons.mozilla.org/](https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png)](https://addons.mozilla.org/firefox/addon/notification-attention/?utm_source=github&utm_content=readme)
 
 ## Notification tester
 
 [Notification Tester](https://freaktechnik.github.io/notification-sounds/)
 
-## Translations
-
-Translations are managed on [Transifex](https://www.transifex.com/freaktechnik/notification-sound/). Feel free to request a new language if you are willing to translate into it.
-
-## Support and FAQ
-
-https://discourse.mozilla.org/t/support-notification-sound/23758
-
 ## License
 
-The code that makes up this project is licensed under the MPL-2.0
-
-The pop.flac sound is licensed under the [CC-3.0-BY license](https://creativecommons.org/licenses/by/3.0/) and was created by [Tobiasz 'unfa' Karoń](https://freesound.org/people/unfa/), original available on [freesound.org](https://freesound.org/people/unfa/sounds/245645/)
-
-The icon was created by @elioqoshi via request on http://opensourcedesign.net/.
+The code that makes up this project is licensed under the MPL-2.0.

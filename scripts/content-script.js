@@ -4,17 +4,7 @@
 
 const OPTIONS_INDEX = 1,
     dispatchNotificationEvent = (options) => {
-        if(Notification.permission === "granted" && (!options || !options.silent)) {
-            if(!options || !options.sound) {
-                browser.runtime.sendMessage("new-notification");
-            }
-            else {
-                browser.runtime.sendMessage({
-                    command: 'play',
-                    url: new URL(options.sound, window.location).toString()
-                });
-            }
-        }
+        browser.runtime.sendMessage("new-notification");
     },
     OriginalNotification = window.wrappedJSObject.Notification,
     /**

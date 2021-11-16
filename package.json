@@ -1,9 +1,9 @@
 {
-  "title": "Notification Sound",
-  "name": "notification-sound",
-  "version": "1.4.0",
-  "description": "Makes a sound when a notification is shown",
-  "author": "Martin Giger (https://humanoids.be)",
+  "title": "Notification Attention",
+  "name": "notification-attention",
+  "version": "0.0.1",
+  "description": "\"Draws attention\" to windows which display a notification",
+  "author": "Vladimir Panteleev (https://cy.md/)",
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
@@ -13,15 +13,15 @@
     "lint:ec": "eclint check $(git ls-files)",
     "test": "npm run lint:js && npm run lint:css && npm run lint:webext && npm run lint:ec",
     "start": "web-ext run",
-    "build": "web-ext build -i README.md package.json package-lock.json images/Notification_Sound_Icon_Square.svg"
+    "build": "web-ext build -i README.md package.json package-lock.json"
   },
-  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/notification-sound/",
+  "homepage": "https://addons.mozilla.org/en-US/firefox/addon/notification-attention/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freaktechnik/notification-sounds.git"
+    "url": "https://github.com/CyberShadow/notification-attention.git"
   },
   "bugs": {
-    "url": "https://github.com/freaktechnik/notification-sounds/issues"
+    "url": "https://github.com/CyberShadow/notification-attention/issues"
   },
   "devDependencies": {
     "@freaktechnik/eslint-config-extension": "^8.0.2",

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="32" height="32" >
+
+  <!-- Window and bubble outline -->
+  <path d="M 0.5 14.5 h 26 v 17 h -26 z
+
+	   M 22.5 8.5
+	   h -2 a 2 2 0 0 1 -2 -2
+	   v -4 a 2 2 0 0 1  2 -2
+	   h  9 a 2 2 0 0 1  2  2
+	   v  4 a 2 2 0 0 1 -2  2
+	   h -3 l -4 4 v -4
+	   "
+	stroke="#000" stroke-width="1px" stroke-linejoin="round" stroke-linecap="round" fill="#fff"/>
+
+  <!-- Window and bubble detail -->
+  <path d="M 0.5 16.5 h 26
+	   M 2.5 14.5 v 2
+	   M 10.5 14.5 v 2
+
+	   M 20.5 2.5 h 5
+	   M 20.5 4.5 h 7
+	   M 20.5 6.5 h 5
+	   "
+	stroke="#000" stroke-width="1px" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+  <!-- Alert triangle outline -->
+  <path d="M 13.5 18.5
+	   l -6  11
+	   h 12
+	   z"
+	stroke="#000" stroke-width="1px" stroke-linejoin="round" stroke-linecap="round" fill="#ff0"/>
+
+  <!-- Alert triangle detail (exclamation sign) -->
+  <path d="M 13.5 22.5 v 3
+	   M 13.5 27.5 v 0"
+	stroke="#000" stroke-width="1px" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+</svg>

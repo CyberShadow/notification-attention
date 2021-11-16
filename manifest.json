@@ -5,25 +5,20 @@
     "default_locale": "en",
     "applications": {
         "gecko": {
-            "id": "@notification-sound",
+            "id": "@notification-attention",
             "strict_min_version": "63.0a1"
         }
     },
-    "author": "freaktechnik",
-    "version": "1.4.1",
+    "author": "Vladimir Panteleev",
+    "version": "0.0.1",
     "icons": {
-        "48": "images/Notification_Sound_Icon.svg",
-        "96": "images/Notification_Sound_Icon.svg"
+        "48": "images/Notification_Attention_Icon.svg",
+        "96": "images/Notification_Attention_Icon.svg"
     },
     "background": {
         "scripts": [
-            "scripts/stored-sound.js",
             "scripts/background.js"
         ]
-    },
-    "options_ui": {
-        "page": "pages/options.html",
-        "browser_style": true
     },
     "permissions": [
         "storage",

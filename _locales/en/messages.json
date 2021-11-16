@@ -1,54 +1,8 @@
 {
     "extensionName": {
-        "message": "Notification Sound"
+        "message": "Notification Attention"
     },
     "extensionDescription": {
-        "message": "Makes a sound when a notification is shown"
-    },
-    "remove": {
-        "message": "Remove"
-    },
-    "ignoreHost": {
-        "message": "Mute notifications &from $HOST$",
-        "placeholders": {
-            "HOST": {
-                "content": "$1"
-            }
-        }
-    },
-    "allowHost": {
-        "message": "Make sound for notifications &from $HOST$",
-        "placeholders": {
-            "HOST": {
-                "content": "$1"
-            }
-        }
-    },
-    "currentSound": {
-        "message": "Current sound:"
-    },
-    "defaultSound": {
-        "message": "Default"
-    },
-    "globalSound": {
-        "message": "Global"
-    },
-    "previewSound": {
-        "message": "Preview sound"
-    },
-    "resetSound": {
-        "message": "Reset sound"
-    },
-    "volume": {
-        "message": "Volume:"
-    },
-    "replaceSound": {
-        "message": "Replace sound:"
-    },
-    "customSound": {
-        "message": "Set custom sound"
-    },
-    "cannotDecode": {
-        "message": "Browser can not play selected file"
+        "message": "\"Draws attention\" to windows which display a notification"
     }
 }
