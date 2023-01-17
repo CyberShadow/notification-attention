@@ -39,10 +39,13 @@ const showNotification = async (options) => {
     };
 
 document.addEventListener("DOMContentLoaded", () => {
-    navigator.serviceWorker.register('sw.js');
-
     document.getElementById(   "immediately").addEventListener("click", () => action(false, 0));
     document.getElementById(   "five"       ).addEventListener("click", () => action(false, 5));
     document.getElementById("sw-immediately").addEventListener("click", () => action(true, 0));
     document.getElementById("sw-five"       ).addEventListener("click", () => action(true, 5));
+
+    if ('serviceWorker' in navigator)
+        navigator.serviceWorker.register('sw.js');
+    else
+        document.getElementById('service-worker-controls').textContent = 'Service workers unavailable. (Private window?)';
 });
